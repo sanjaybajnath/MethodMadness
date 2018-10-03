@@ -16,16 +16,30 @@ public class SBajnathLib
     public static void primePrinter(int num)
     {
         int i = 0;
-        int prime = 0;
-        while (i <= num)
+        int prime = 2;
+        while (i < num)
         {
             if (isPrime(prime))
-                {
-                    System.out.println(prime);
-                    i++;
-                } 
+            {
+                System.out.println(prime);
+                i++;
+            }
             prime ++;
-        }            
+        }
     }
+    //sumUpTo: Sum of numbers from 0 to input
+    public static int sumUpTo(int num)
+    {
+        int sum = 0;
+        int a = 0;
+        while (a<= num)
+        {
+            sum+=a;
+            a++;
+        }
+        return sum;
+    }
+
     
+
 }
