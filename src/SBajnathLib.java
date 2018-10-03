@@ -49,4 +49,17 @@ public class SBajnathLib
         return(day + " - "+ month+ " - "+year);
     }
 
+    //cutOut: returns mainStr with the first occurrence of subStr removed.
+    public static String cutOut(String mainStr, String subStr)
+    {
+        int index = mainStr.indexOf(subStr);
+        if (index == -1)
+        {
+            return mainStr;
+        }
+        String before = mainStr.substring(0, index);
+        String after = mainStr.substring(index + subStr.length());
+        return before + after;
+    }
+
 }
