@@ -40,6 +40,13 @@ public class SBajnathLib
         return sum;
     }
 
-    
+    //dateStr: Converts mm/dd/yyyy to dd - mm - yyyy
+    public static String dateStr(String str)
+    {
+        String month = str.substring(0,2);
+        String day = str.substring(3,5);
+        String year = str.substring(6);
+        return(day + " - "+ month+ " - "+year);
+    }
 
 }
