@@ -15,7 +15,17 @@ public class SBajnathLib
     // primePrinter: Prints the first num primes
     public static void primePrinter(int num)
     {
-
+        int i = 0;
+        int prime = 0;
+        while (i <= num)
+        {
+            if (isPrime(prime))
+                {
+                    System.out.println(prime);
+                    i++;
+                } 
+            prime ++;
+        }            
     }
     
 }
