@@ -62,4 +62,20 @@ public class SBajnathLib
         return before + after;
     }
 
+    //leastCommonMultiple: Returns the least common multiple shared by all three numbers.
+    public static int leastCommonMultiple(int num1, int num2, int num3)
+    {
+        if (num1 == 0 || num2 == 0 || num3 == 0)
+        {
+            return 0;
+        }
+        int LCM = 1;
+        while(LCM%num1 != 0 || LCM%num2 != 0 || LCM%num3 != 0)
+        {
+            LCM++;
+        }
+        return LCM;
+
+    }
+
 }
