@@ -43,10 +43,14 @@ public class SBajnathLib
     //dateStr: Converts mm/dd/yyyy to dd - mm - yyyy
     public static String dateStr(String str)
     {
-        String month = str.substring(0,2);
-        String day = str.substring(3,5);
-        String year = str.substring(6);
-        return(day + " - "+ month+ " - "+year);
+        //String month = str.substring(0,2);
+        //String day = str.substring(3,5);
+        //String year = str.substring(6);
+        //return(day + " - "+ month+ " - "+year);
+        String mm = str.substring(0, str.indexOf("/"));
+        str = str.substring(str.indexOf("/")+1);
+        String dd = str.substring(0, str.indexOf("/"));
+        return (dd + " - " + mm + " - " + str.substring(str.indexOf("/")+1));
     }
 
     //cutOut: returns mainStr with the first occurrence of subStr removed.
