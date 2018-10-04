@@ -108,4 +108,29 @@ public class SBajnathLib
         return("The equation ("+a+")x^2 +("+b+")x + ("+c+") has a double root! There is only one solution, which is x = "+x1+" .");
     }
 
+    public static int stringUnion(String word1, String word2, String word3)
+    {
+        String Used = "";
+        int count = 0;
+        String character = "";
+        for (int i = 0; i < word1.length(); i++)
+        {
+            character = word1.substring(i,i+1);
+            if (word2.indexOf(character) != -1 && Used.indexOf(character) == -1)
+            {
+                count ++;
+                Used = Used + character;
+            }
+        }
+        for (int i = 0; i < word2.length(); i++)
+        {
+            character = word2.substring(i,i+1);
+            if (word3.indexOf(character) != -1 && Used.indexOf(character) == -1)
+            {
+                count ++;
+                Used = Used + character;
+            }
+        }
+        return count;
+    }
 }
