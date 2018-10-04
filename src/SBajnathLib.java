@@ -142,4 +142,40 @@ public class SBajnathLib
         }
         return count;
     }
+
+    //caesarCipher:
+    public static String CaesarCipher (String letter, int shift)
+    {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        int index = alphabet.indexOf(letter);
+        shift = (shift + index)%26;
+        letter = alphabet.substring(shift, shift+1);
+        return letter;
+    }
+
+
+    //vigCipher -
+    public static String vigCipher(String message, String key)
+    {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String encrypted = "";
+        String keyword = key.toLowerCase();
+        message = message.toLowerCase();
+        if(key.length() < message.length())
+        {
+            for (int i = 0; i < (message.length()-key.length()); i++)
+            {
+                keyword = keyword + keyword.substring(i,i+1);
+            }
+        }
+        if (keyword.length() > message.length())
+        {
+            keyword = keyword.substring(0, message.length());
+        }
+        for (int i = 0; i < message.length(); i++)
+        {
+            encrypted = encrypted + CaesarCipher(message.substring(i,i+1),alphabet.indexOf(keyword.substring(i,i+1)));
+        }
+        return encrypted;
+    }
 }
