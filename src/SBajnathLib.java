@@ -122,6 +122,15 @@ public class SBajnathLib
                 Used = Used + character;
             }
         }
+        for (int i = 0; i < word1.length(); i++)
+        {
+            character = word1.substring(i,i+1);
+            if (word3.indexOf(character) != -1 && Used.indexOf(character) == -1)
+            {
+                count ++;
+                Used = Used + character;
+            }
+        }
         for (int i = 0; i < word2.length(); i++)
         {
             character = word2.substring(i,i+1);
