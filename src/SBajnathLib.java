@@ -183,7 +183,7 @@ public class SBajnathLib
         }
         for (int i = 0; i < message.length(); i++)
         {
-            //A Caesar Cypher is applied to each letter in the message, and each shift is determined by each letter's corresponding letter in the keyword.
+            //A Caesar Cipher is applied to each letter in the message, and each shift is determined by each letter's corresponding letter in the keyword.
             encrypted = encrypted + CaesarCipher(message.substring(i,i+1),alphabet.indexOf(keyword.substring(i,i+1)));
         }
         return encrypted;
