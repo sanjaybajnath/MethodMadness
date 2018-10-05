@@ -1,6 +1,12 @@
+// Sanjay Bajnath - Period 9
 public class SBajnathLib
 {
-    // isPrime identifies prime numbers by checking if any numbers less than n evenly divide into n.
+    /**
+     *Checks whether a number is prime or not.
+     * @param n The number being tested.
+     * @return a boolean indicating whether the n is prime
+     */
+
     public static boolean isPrime (int n)
     {
         for (int i = 2; i<n; i++)
@@ -12,85 +18,106 @@ public class SBajnathLib
         }
         return true;
     }
-    // primePrinter: Prints the first num primes
+
+    /**
+     * Prints a list of prime numbers. The length of the list is determined by the input.
+     * @param num The number of prime numbers being printed.
+     */
     public static void primePrinter(int num)
     {
-        int i = 0;
+        int count = 0;
         int prime = 2;
-        while (i < num)
+        while (count < num)
         {
-            // This loop uses the previous method to check which numbers are prime.
             if (isPrime(prime))
             {
                 System.out.println(prime);
-                i++;
-                // i counts how many times a prime number is printed.
+                count++;
             }
             prime ++;
         }
     }
-    //sumUpTo: Returns sum of numbers from 0 to input
+
+
+    /**
+     * Adds all integers from 0 to the integer in the input.
+     * @param num The amount of numbers being added together.
+     * @return An integer that is equal to the sum of all integers from 0 to "num"
+     */
     public static int sumUpTo(int num)
     {
         int sum = 0;
         int a = 0;
         while (a<= num)
         {
-            // sum is the total sum, and a is the number that needs to be added to sum in the next loop.
             sum+=a;
             a++;
         }
         return sum;
     }
 
-    //dateStr: Converts mm/dd/yyyy to dd - mm - yyyy
+    /**
+     * Converts a date from mm/dd/yyyy to dd - mm - yyyy.
+     * @param str The date being converted.
+     * @return A string with the date in the new format.
+     */
     public static String dateStr(String str)
     {
-        // This method separates the date into month, day, and year, and then rearranges the date into a different format.
         String mm = str.substring(0, str.indexOf("/"));
         str = str.substring(str.indexOf("/")+1);
         String dd = str.substring(0, str.indexOf("/"));
         return (dd + " - " + mm + " - " + str.substring(str.indexOf("/")+1));
     }
 
-    //cutOut: returns mainStr with the first occurrence of subStr removed.
+    /**
+     * Removes the first instance of subStr from mainStr.
+     * @param mainStr The word that is being modified.
+     * @param subStr The word being cut out from the main word.
+     * @return A string of mainStr without the first instance of subStr.
+     */
     public static String cutOut(String mainStr, String subStr)
     {
         int index = mainStr.indexOf(subStr);
         if (index == -1)
         {
             return mainStr;
-            // if subStr is not found in mainStr, no changes are made.
         }
-        // The method creates a new string that is the same as mainStr, but without the first instance of subStr.
         String before = mainStr.substring(0, index);
         String after = mainStr.substring(index + subStr.length());
         return before + after;
     }
 
-    //leastCommonMultiple: Returns the least common multiple shared by all three numbers.
+    /**
+     * Finds the least common multiple of three integers.
+     * @param num1 The first number that must evenly divide the least common multiple.
+     * @param num2 The second number that must evenly divide the least common multiple.
+     * @param num3 The third number that must evenly divide the least common multiple.
+     * @return The smallest integer that is divisible by all three parameters.
+     */
     public static int leastCommonMultiple(int num1, int num2, int num3)
     {
         if (num1 == 0 || num2 == 0 || num3 == 0)
-        // if any of the 3 numbers are equal to 0, the least common multiple of all 3 will be 0.
         {
             return 0;
         }
         int LCM = 1;
         while(LCM%num1 != 0 || LCM%num2 != 0 || LCM%num3 != 0)
         {
-            //This loop looks for the lowest integer greater than 0 that is divisible by all three numbers.
             LCM++;
         }
         return LCM;
 
     }
 
-
-    //quadSolver - Returns string response with the roots of the quadratic equation described.
+    /**
+     * Uses the quadratic formula to solve for the roots of a quadratic equation.
+     * @param a The coefficient for x^2.
+     * @param b The coefficient for x.
+     * @param c The constant in the equation.
+     * @return A string explaining the roots of the equation.
+     */
     public static String quadSolver(double a, double b, double c)
     {
-        // This method uses the quadratic formula to find the roots and to determine whether the roots are real or imaginary.
         double x1 = -1 *b;
         double x2 = -1 *b;
         double d = b * b;
@@ -113,14 +140,18 @@ public class SBajnathLib
         return("The equation ("+a+")x^2 +("+b+")x + ("+c+") has a double root! There is only one solution, which is x = "+x1+" .");
     }
 
-    // stringUnion: Returns int number of unique letters shared by at least two of the words.
+    /**
+     * Counts how many unique characters are shared by at least two of the three inputted words.
+     * @param word1 The first word being examined.
+     * @param word2 The second word being examined.
+     * @param word3 The third word being examined.
+     * @return An integer that is equal to the number of unique characters that appear in at least two words.
+     */
     public static int stringUnion(String word1, String word2, String word3)
     {
         String Used = "";
         int count = 0;
         String character = "";
-        // The three loops compare each word to each of the other two words for any characters that appear in both words. Each loop only compares two words at a time.
-        // "Used" contains all characters that have already been identified as unique characters in at least two words. This prevents double counting.
         for (int i = 0; i < word1.length(); i++)
         {
             character = word1.substring(i,i+1);
@@ -151,7 +182,12 @@ public class SBajnathLib
         return count;
     }
 
-    //CaesarCipher - shifts a given letter by a given amount in the alphabet. This accounts for a letter being shifted past z.
+    /**
+     * Uses the Caesar Cipher to shift a single letter.
+     * @param letter The letter being shifted.
+     * @param shift The magnitude of the shift.
+     * @return The letter after it is shifted in the alphabet.
+     */
     public static String CaesarCipher (String letter, int shift)
     {
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -162,7 +198,12 @@ public class SBajnathLib
     }
 
 
-    //vigCipher - Returns encrypted message using the Vigenere Cipher.
+    /**
+     * Uses the Vigenere Cipher to encrypt a string.
+     * @param message The string that is being encrypted.
+     * @param key The key for encryption.
+     * @return The encrypted message.
+     */
     public static String vigCipher(String message, String key)
     {
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -171,7 +212,6 @@ public class SBajnathLib
         message = message.toLowerCase();
         if(key.length() < message.length())
         {
-            //For the Vigenere Cipher, the key and message must be the same length.
             for (int i = 0; i < (message.length()-key.length()); i++)
             {
                 keyword = keyword + keyword.substring(i,i+1);
@@ -183,7 +223,6 @@ public class SBajnathLib
         }
         for (int i = 0; i < message.length(); i++)
         {
-            //A Caesar Cipher is applied to each letter in the message, and each shift is determined by each letter's corresponding letter in the keyword.
             encrypted = encrypted + CaesarCipher(message.substring(i,i+1),alphabet.indexOf(keyword.substring(i,i+1)));
         }
         return encrypted;
