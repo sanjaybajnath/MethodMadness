@@ -128,16 +128,16 @@ public class SBajnathLib
             x1 = x1 / (2*a);
             x2 = x2 - Math.sqrt(d);
             x2 = x2 / (2*a);
-            return("The roots of ("+a+")x^2 +("+b+")x + ("+c+") are: x = "+ x1 +" and x = "+ x2+" .");
+            return("The roots of ("+a+")x^2 +("+b+")x + ("+c+") = 0 are: x = "+ x1 +" and x = "+ x2+" .");
         }
         if (d < 0)
         {
             d *= -1;
-            return("The roots of ("+a+")x^2 +("+b+")x + ("+c+") are imaginary! The roots are x = "+(x1/(2*a))+" + "+(Math.sqrt(d)/2*a)+"i and x = "+(x1/(2*a))+" - "+(Math.sqrt(d)/2*a)+"i.");
+            return("The roots of ("+a+")x^2 +("+b+")x + ("+c+") = 0 are imaginary! The roots are x = "+(x1/(2*a))+" + "+(Math.sqrt(d)/2*a)+"i and x = "+(x1/(2*a))+" - "+(Math.sqrt(d)/2*a)+"i.");
         }
         x1 = x1 + Math.sqrt(d);
         x1 = x1 / (2*a);
-        return("The equation ("+a+")x^2 +("+b+")x + ("+c+") has a double root! There is only one solution, which is x = "+x1+" .");
+        return("The equation ("+a+")x^2 +("+b+")x + ("+c+") = 0 has a double root! There is only one solution, which is x = "+x1+" .");
     }
 
     /**
