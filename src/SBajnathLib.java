@@ -2,44 +2,6 @@
 public class SBajnathLib
 {
     /**
-     *Checks whether a number is prime or not.
-     * @param n The number being tested.
-     * @return a boolean indicating whether the n is prime
-     */
-
-    public static boolean isPrime (int n)
-    {
-        for (int i = 2; i<n; i++)
-        {
-            if (n%i == 0)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
-     * Prints a list of prime numbers. The length of the list is determined by the input.
-     * @param num The number of prime numbers being printed.
-     */
-    public static void primePrinter(int num)
-    {
-        int count = 0;
-        int prime = 2;
-        while (count < num)
-        {
-            if (isPrime(prime))
-            {
-                System.out.println(prime);
-                count++;
-            }
-            prime ++;
-        }
-    }
-
-
-    /**
      * Adds all integers from 0 to the integer in the input.
      * @param num The amount of numbers being added together.
      * @return An integer that is equal to the sum of all integers from 0 to "num"
@@ -54,37 +16,6 @@ public class SBajnathLib
             a++;
         }
         return sum;
-    }
-
-    /**
-     * Converts a date from mm/dd/yyyy to dd - mm - yyyy.
-     * @param str The date being converted.
-     * @return A string with the date in the new format.
-     */
-    public static String dateStr(String str)
-    {
-        String mm = str.substring(0, str.indexOf("/"));
-        str = str.substring(str.indexOf("/")+1);
-        String dd = str.substring(0, str.indexOf("/"));
-        return (dd + " - " + mm + " - " + str.substring(str.indexOf("/")+1));
-    }
-
-    /**
-     * Removes the first instance of subStr from mainStr.
-     * @param mainStr The word that is being modified.
-     * @param subStr The word being cut out from the main word.
-     * @return A string of mainStr without the first instance of subStr.
-     */
-    public static String cutOut(String mainStr, String subStr)
-    {
-        int index = mainStr.indexOf(subStr);
-        if (index == -1)
-        {
-            return mainStr;
-        }
-        String before = mainStr.substring(0, index);
-        String after = mainStr.substring(index + subStr.length());
-        return before + after;
     }
 
     /**
@@ -208,23 +139,35 @@ public class SBajnathLib
     {
         String alphabet = "abcdefghijklmnopqrstuvwxyz";
         String encrypted = "";
-        String keyword = key.toLowerCase();
+        key = key.toLowerCase();
         message = message.toLowerCase();
-        if(key.length() < message.length())
-        {
-            for (int i = 0; i < (message.length()-key.length()); i++)
-            {
-                keyword = keyword + keyword.substring(i,i+1);
+
+
+        int count = 0;
+        String keyword = "";
+        for (int i = 0; i< message.length(); i++){
+            if (!(message.substring(i, i + 1).equals(" "))) {
+                keyword = keyword + key.substring(count%key.length(), (count%key.length()) +1);
+                count ++;
+            }
+            else{
+                keyword = keyword + " ";
             }
         }
-        if (keyword.length() > message.length())
-        {
-            keyword = keyword.substring(0, message.length());
-        }
+        System.out.println(keyword);
+
+
         for (int i = 0; i < message.length(); i++)
         {
-            encrypted = encrypted + CaesarCipher(message.substring(i,i+1),alphabet.indexOf(keyword.substring(i,i+1)));
+            if (!(message.substring(i,i+1).equals(" "))){
+                encrypted = encrypted + CaesarCipher(message.substring(i,i+1),alphabet.indexOf(keyword.substring(i,i+1)));
+            }
+            else{
+                encrypted = encrypted + " ";
+            }
+
         }
         return encrypted;
+
     }
 }
